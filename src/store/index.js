@@ -17,7 +17,7 @@ export default new Vuex.Store({
 		userHideInstallMessage: false,
 
 		sitename: "Bamboo Hero",
-		versionNumber: "1.0.3",
+		versionNumber: "1.0.4",
 		developmentMode: false,
 		showAllCards: false
 	},
