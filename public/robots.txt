@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /suggest
+Disallow: /suggestions
+Sitemap: https://bamboohero.org/sitemap.xml

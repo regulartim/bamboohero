@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Bamboo Hero</title>
+		<meta name="title" content="Bamboo Hero">
+		<meta name="description" content="A fun game that raises awareness on climate change and motivates people to act in a climate-friendly way.">
+
+		<!-- Open Graph Properties -->
+		<meta property="og:title" content="Bamboo Hero">
+		<meta property="og:description" content="A fun game that raises awareness on climate change and motivates people to act in a climate-friendly way.">
+		<meta property="og:site_name" content="Bamboo Hero">
+		<meta property="og:url" content="https://bamboohero.org/">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="<%= htmlWebpackPlugin.files.publicPath %>img/panda_waving_coat_768.png">
+		<meta property="og:image:width" content="768">
+		<meta property="og:image:height" content="768">
+		
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/favicon-16x16.png">
+		<!--[if IE]><link rel="shortcut icon" href="/img/icons/favicon.ico"><![endif]-->
+		
+		<!-- Home screen icons for Android and modern mobile browsers -->
+		<link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
+		<meta name="theme-color" content="#222222">
+
+		<!-- Home screen icons for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Bamboo Hero">
+		<link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/apple-touch-icon-152x152.png">
+		<!--link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/safari-pinned-tab.svg" color="#35495e"-->
+		
+		<!-- Home screen icons for Windows -->
+		<meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>img/icons/msapplication-icon-144x144.png">
+		<meta name="msapplication-TileColor" content="#35495e">
+		
+		<!-- JS section -->
+		<% for (var chunk of webpack.chunks) {
+			for (var file of chunk.files) {
+			  if (file.match(/\.(js|css)$/)) { %>
+		<link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+
+	</head>
+
+	<body>
+
+		<noscript>
+			Sorry! This page needs JavaScript to work. <br>
+			If you are using a script blocking browser extension like NoScript you have to deactivate it. 
+		</noscript>
+
+		<div id="app"></div>
+
+		<%= htmlWebpackPlugin.options.serviceWorkerLoader %>	
+	</body>
+
+</html>
